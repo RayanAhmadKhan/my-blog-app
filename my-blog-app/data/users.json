@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Leanne Graham",
     "email": "Sincere@april.biz",
-    "password": "password123"
+    "password": " "
   },
   {
     "id": 2,
@@ -58,5 +58,11 @@
     "name": "Clementina DuBuque",
     "email": "Rey.Padberg@karina.biz",
     "password": "password123"
+  },
+  {
+    "id": 1784310216532,
+    "name": "rayan",
+    "email": "rayan@gmail.com",
+    "password": "123456"
   }
 ]

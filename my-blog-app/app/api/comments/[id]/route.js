@@ -6,8 +6,9 @@ export async function PUT(request, { params }) {        // update
   const session = await getSession();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
+  const { id } = await params;
   const comments = db.getComments();
-  const index = comments.findIndex((c) => String(c.id) === String(params.id));
+  const index = comments.findIndex((c) => String(c.id) === String(id));
   
   if (index === -1) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   
@@ -27,13 +28,14 @@ export async function DELETE(request, { params }) {
   const session = await getSession();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
+  const { id } = await params;
   const comments = db.getComments();
-  const comment = comments.find((c) => String(c.id) === String(params.id));
+  const comment = comments.find((c) => String(c.id) === String(id));
   if (!comment) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   if (String(comment.userId) !== String(session.id)) {
     return NextResponse.json({ error: 'You can only delete your own comments' }, { status: 403 });
   }
 
-  db.saveComments(comments.filter((c) => String(c.id) !== String(params.id)));
+  db.saveComments(comments.filter((c) => String(c.id) !== String(id)));
   return NextResponse.json({ message: 'Deleted' });
 }

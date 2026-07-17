@@ -3,9 +3,9 @@ import { db } from '@/lib/db';
 import { getSession } from '@/lib/session';
 
 export async function GET(request, { params }) {   // read
-  
+  const { id } = await params;
   const posts = db.getPosts();
-  const post = posts.find((p) => String(p.id) === String(params.id));
+  const post = posts.find((p) => String(p.id) === String(id));
   
   if (!post) 
     return NextResponse.json({ error: 'Not found' }, { status: 404 }); // Not Found
@@ -15,11 +15,12 @@ export async function GET(request, { params }) {   // read
 }
 
 export async function PUT(request, { params }) {  // update
+  const { id } = await params;
   const session = await getSession();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 }); // Unauthorized
 
   const posts = db.getPosts();
-  const index = posts.findIndex((p) => String(p.id) === String(params.id));
+  const index = posts.findIndex((p) => String(p.id) === String(id));
   
   if (index === -1) 
     return NextResponse.json({ error: 'Not found' }, { status: 404 }); // Not Found
@@ -38,18 +39,19 @@ export async function PUT(request, { params }) {  // update
 }
 
 export async function DELETE(request, { params }) {
+  const { id } = await params;
   const session = await getSession();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 }); // Unauthorized
 
   const posts = db.getPosts();
-  const post = posts.find((p) => String(p.id) === String(params.id));
+  const post = posts.find((p) => String(p.id) === String(id));
   if (!post) return NextResponse.json({ error: 'Not found' }, { status: 404 }); // Not Found
   if (String(post.userId) !== String(session.id)) {
     return NextResponse.json({ error: 'You can only delete your own posts' }, { status: 403 }); // Forbidden
   }
 
-  db.savePosts(posts.filter((p) => String(p.id) !== String(params.id)));
-  db.saveComments(db.getComments().filter((c) => String(c.postId) !== String(params.id)));
+  db.savePosts(posts.filter((p) => String(p.id) !== String(id)));
+  db.saveComments(db.getComments().filter((c) => String(c.postId) !== String(id)));
 
   return NextResponse.json({ message: 'Deleted' });
 }
