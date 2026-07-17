@@ -28,16 +28,38 @@ export default function SignupPage() {
   }
 
   return (
-    <div style={{ maxWidth: 400, margin: '50px auto', padding: 20 }}>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <input placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Sign Up</button>
-      </form>
-      <p>Already have an account? <Link href="/login">Log in</Link></p>
+    <div className="auth-grid">
+      <section className="surface auth-panel">
+        <p className="eyebrow">Create access</p>
+        <h1>Sign up</h1>
+        <p className="auth-note">Create a quick demo account so you can test post creation and deletion.</p>
+        <ul className="feature-list">
+          <li>One-minute signup flow</li>
+          <li>Used for post ownership testing</li>
+          <li>Works with the demo JSON database</li>
+        </ul>
+      </section>
+      <section className="surface auth-card">
+        <form onSubmit={handleSubmit} className="stack">
+          {error && <p className="error-banner">{error}</p>}
+          <div className="form-group">
+            <label className="field-label" htmlFor="name">Name</label>
+            <input id="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
+          <div className="form-group">
+            <label className="field-label" htmlFor="signup-email">Email</label>
+            <input id="signup-email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+          <div className="form-group">
+            <label className="field-label" htmlFor="signup-password">Password</label>
+            <input id="signup-password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
+          <div className="form-actions">
+            <button type="submit" className="button button-primary">Sign Up</button>
+          </div>
+        </form>
+        <p className="auth-note" style={{ marginTop: 16 }}>Already have an account? <Link href="/login" className="link-button" style={{ display: 'inline-flex' }}>Log in</Link></p>
+      </section>
     </div>
   );
 }

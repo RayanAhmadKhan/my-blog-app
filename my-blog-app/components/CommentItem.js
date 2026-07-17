@@ -25,21 +25,28 @@ export default function CommentItem({ comment, currentUserId }) {
   }
 
   return (
-    <li style={{ border: '1px solid #ddd', padding: 10, marginBottom: 10, listStyle: 'none' }}>
-      <strong>{comment.name}</strong>
-      {editing ? (
+    <li className="comment-card">
+      <div className="comment-header">
         <div>
-          <textarea value={body} onChange={(e) => setBody(e.target.value)} style={{ width: '100%' }} />
-          <button onClick={saveEdit}>Save</button>
-          <button onClick={() => setEditing(false)}>Cancel</button>
+          <p className="comment-author">{comment.name}</p>
+          <p className="comment-meta">{comment.email}</p>
+        </div>
+      </div>
+      {editing ? (
+        <div className="stack">
+          <textarea value={body} onChange={(e) => setBody(e.target.value)} />
+          <div className="comment-actions">
+            <button onClick={saveEdit} className="button button-primary">Save</button>
+            <button onClick={() => setEditing(false)} className="button button-secondary">Cancel</button>
+          </div>
         </div>
       ) : (
-        <p>{comment.body}</p>
+        <p className="comment-body">{comment.body}</p>
       )}
       {isOwner && !editing && (
-        <div style={{ display: 'flex', gap: 10 }}>
-          <button onClick={() => setEditing(true)}>Edit</button>
-          <button onClick={deleteComment}>Delete</button>
+        <div className="comment-actions">
+          <button onClick={() => setEditing(true)} className="button button-secondary">Edit</button>
+          <button onClick={deleteComment} className="button button-danger">Delete</button>
         </div>
       )}
     </li>

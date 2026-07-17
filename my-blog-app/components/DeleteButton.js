@@ -19,5 +19,5 @@ export default function DeleteButton({ url, redirectTo })
         router.refresh();
   }
 
-  return <button onClick={handleDelete}>Delete</button>;
+  return <button className="button button-danger" onClick={handleDelete}>Delete</button>;
 }

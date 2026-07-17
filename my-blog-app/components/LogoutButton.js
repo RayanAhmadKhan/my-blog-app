@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/navigation';
 
 export default function LogoutButton() {
@@ -9,5 +10,5 @@ export default function LogoutButton() {
     router.refresh();
   }
 
-  return <button onClick={handleLogout}>Log Out</button>;
+  return <button className="button button-secondary" onClick={handleLogout}>Log Out</button>;
 }

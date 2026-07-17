@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-//it is used for both creating and editing a post. If postId is provided, it is an edit form, otherwise it is a create form.
+// It is used for both creating and editing a post. If postId is provided, it is an edit form, otherwise it is a create form.
 
 export default function PostForm({ initialTitle = '', initialBody = '', postId }) 
 {
@@ -33,11 +33,19 @@ export default function PostForm({ initialTitle = '', initialBody = '', postId }
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 10, maxWidth: 500 }}>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
-      <textarea value={body} onChange={(e) => setBody(e.target.value)} placeholder="Content" rows={6} required />
-      <button type="submit">{isEdit ? 'Save changes' : 'Create post'}</button>
+    <form onSubmit={handleSubmit} className="stack">
+      {error && <p className="error-banner">{error}</p>}
+      <div className="form-group">
+        <label className="field-label" htmlFor="post-title">Title</label>
+        <input id="post-title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="A clear, test-friendly title" required />
+      </div>
+      <div className="form-group">
+        <label className="field-label" htmlFor="post-body">Content</label>
+        <textarea id="post-body" value={body} onChange={(e) => setBody(e.target.value)} placeholder="Write the post content here" rows={8} required />
+      </div>
+      <div className="form-actions">
+        <button type="submit" className="button button-primary">{isEdit ? 'Save changes' : 'Create post'}</button>
+      </div>
     </form>
   );
 }

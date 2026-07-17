@@ -18,17 +18,21 @@ export default function CommentForm({ postId }) {
     router.refresh();
   }
 
-  return 
-  (
-    <form onSubmit={handleSubmit} style={{ marginBottom: 20 }}>
-      <textarea
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        placeholder="Write a comment..."
-        rows={3}
-        style={{ width: '100%' }}
-      />
-      <button type="submit">Post comment</button>
+  return (
+    <form onSubmit={handleSubmit} className="stack">
+      <div className="form-group">
+        <label className="field-label" htmlFor={`comment-${postId}`}>Add a comment</label>
+        <textarea
+          id={`comment-${postId}`}
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          placeholder="Write a short comment to test the form"
+          rows={4}
+        />
+      </div>
+      <div className="form-actions">
+        <button type="submit" className="button button-primary">Post comment</button>
+      </div>
     </form>
   );
 }

@@ -9,19 +9,33 @@ export default async function PostsPage() {
   const session = await getSession();
 
   return (
-    <div style={{ maxWidth: 700, margin: '0 auto', padding: 20 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h1>All Posts</h1>
-        {session && <Link href="/posts/new">+ New Post</Link>}
+    <div className="section-panel hero">
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow">Testing workspace</p>
+          <h1>All Posts</h1>
+          <p className="lede">Browse short, readable demo posts that make it easy to test navigation, editing, and comments without noisy placeholder text.</p>
+        </div>
+        <div className="hero-card">
+          <p className="section-title" style={{ fontSize: '1.3rem', marginBottom: 10 }}>Quick actions</p>
+          <ul className="stat-list">
+            <li>{posts.length} readable posts</li>
+            <li>{session ? 'Logged in and ready to create' : 'Log in to create or edit posts'}</li>
+            <li>Click any card to open the detail view</li>
+          </ul>
+          {session && <div className="form-actions" style={{ marginTop: 16 }}><Link href="/posts/new" className="button button-primary">+ New Post</Link></div>}
+        </div>
       </div>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+
+      <div className="post-grid">
         {posts.map((post) => (
-          <li key={post.id} style={{ border: '1px solid #ddd', padding: 10, marginBottom: 10 }}>
-            <Link href={`/posts/${post.id}`}><strong>{post.title}</strong></Link>
-            <p>{post.body.slice(0, 100)}...</p>
-          </li>
+          <Link key={post.id} href={`/posts/${post.id}`} className="post-card">
+            <div className="post-meta">Post #{post.id}</div>
+            <div className="post-title">{post.title}</div>
+            <p className="post-excerpt">{post.body.slice(0, 140)}{post.body.length > 140 ? '…' : ''}</p>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

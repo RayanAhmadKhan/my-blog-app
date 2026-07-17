@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "title": "Welcome to the demo blog",
+    "body": "This demo keeps the content short and readable so testing stays fast. Open a post, edit it, and try the comment form."
+  },
+  {
+    "id": 2,
+    "userId": 1,
+    "title": "Building clean forms",
+    "body": "Clear labels, simple buttons, and direct feedback make forms easier to test. This post is a good place to try the login and signup screens."
+  },
+  {
+    "id": 3,
+    "userId": 2,
+    "title": "Why reusable components matter",
+    "body": "Reusable components keep the codebase smaller and easier to understand. They also make UI changes faster when you want to improve the whole app."
+  },
+  {
+    "id": 4,
+    "userId": 2,
+    "title": "Saving data to JSON files",
+    "body": "The app stores users, posts, and comments in local JSON files. That makes it very easy to inspect and reset while testing."
+  },
+  {
+    "id": 5,
+    "userId": 3,
+    "title": "Editing posts without confusion",
+    "body": "The edit screen should show the current title and body clearly. That way you can verify updates with only a few clicks."
+  },
+  {
+    "id": 6,
+    "userId": 3,
+    "title": "Protecting owner-only actions",
+    "body": "Only the owner should see edit and delete actions. This post is useful for checking authorization rules."
+  },
+  {
+    "id": 7,
+    "userId": 4,
+    "title": "Styling a simple blog app",
+    "body": "A better background, more spacing, and stronger buttons can make the app feel much easier to use. This update focuses on readability and structure."
+  },
+  {
+    "id": 8,
+    "userId": 4,
+    "title": "Keeping comments easy to test",
+    "body": "Short comments with clear names are much easier to review than noisy placeholder text. This helps when you are testing create, edit, and delete flows."
+  }
+]

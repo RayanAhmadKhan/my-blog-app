@@ -6,18 +6,19 @@ export default async function Navbar() {
   const session = await getSession();
 
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: 15, borderBottom: '1px solid #ddd' }}>
-      <Link href="/posts">My Blog</Link>
-      <div style={{ display: 'flex', gap: 15, alignItems: 'center' }}>
+    <nav className="surface topbar">
+      <Link href="/posts" className="brand">Blog Journal</Link>
+      <div className="nav-actions">
         {session ? (
           <>
-            <span>Hi, {session.name}</span>
+            <span className="nav-greeting">Hi, {session.name}</span>
+            <Link href="/posts/new" className="button button-secondary">New Post</Link>
             <LogoutButton />
           </>
         ) : (
           <>
-            <Link href="/login">Log In</Link>
-            <Link href="/signup">Sign Up</Link>
+            <Link href="/login" className="button button-secondary">Log In</Link>
+            <Link href="/signup" className="button button-primary">Sign Up</Link>
           </>
         )}
       </div>

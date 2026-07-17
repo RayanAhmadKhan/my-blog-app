@@ -7,9 +7,15 @@ export default async function NewPostPage() {
   if (!session) redirect('/login');
 
   return (
-    <div style={{ maxWidth: 700, margin: '0 auto', padding: 20 }}>
-      <h1>New Post</h1>
+    <div className="stack">
+      <div className="section-panel hero">
+        <p className="eyebrow">Create content</p>
+        <h1>New Post</h1>
+        <p className="lede">Write a short, test-friendly post and publish it to the demo blog.</p>
+      </div>
+      <div className="editor-card">
       <PostForm />
+      </div>
     </div>
   );
 }

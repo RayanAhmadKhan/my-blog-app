@@ -1,1 +1,18 @@
-[]
+[
+  { "id": "1-1", "postId": 1, "userId": null, "name": "Ava Brooks", "email": "ava@example.com", "body": "This version is much easier to test." },
+  { "id": "1-2", "postId": 1, "userId": null, "name": "Noah Miller", "email": "noah@example.com", "body": "The post cards look clearer now." },
+  { "id": "2-1", "postId": 2, "userId": null, "name": "Mia Carter", "email": "mia@example.com", "body": "The form layout feels much cleaner." },
+  { "id": "2-2", "postId": 2, "userId": null, "name": "Liam Stone", "email": "liam@example.com", "body": "Great place to test validation messages." },
+  { "id": "3-1", "postId": 3, "userId": null, "name": "Sophia Reed", "email": "sophia@example.com", "body": "Reusable components make this app easier to maintain." },
+  { "id": "3-2", "postId": 3, "userId": null, "name": "Ethan Cole", "email": "ethan@example.com", "body": "I can follow the UI flow much faster now." },
+  { "id": "4-1", "postId": 4, "userId": null, "name": "Olivia Turner", "email": "olivia@example.com", "body": "The local JSON setup is simple to inspect." },
+  { "id": "4-2", "postId": 4, "userId": null, "name": "Lucas Green", "email": "lucas@example.com", "body": "Perfect for quick testing in a small project." },
+  { "id": "5-1", "postId": 5, "userId": null, "name": "Amelia Ward", "email": "amelia@example.com", "body": "The edit screen should be easy to verify." },
+  { "id": "5-2", "postId": 5, "userId": null, "name": "James Scott", "email": "james@example.com", "body": "Simple text makes debugging a lot faster." },
+  { "id": "6-1", "postId": 6, "userId": null, "name": "Harper Bell", "email": "harper@example.com", "body": "Good to see owner-only actions protected." },
+  { "id": "6-2", "postId": 6, "userId": null, "name": "Benjamin Hall", "email": "benjamin@example.com", "body": "This is a helpful check for permissions." },
+  { "id": "7-1", "postId": 7, "userId": null, "name": "Ella Price", "email": "ella@example.com", "body": "The new look feels much more polished." },
+  { "id": "7-2", "postId": 7, "userId": null, "name": "Henry Adams", "email": "henry@example.com", "body": "Much easier to scan and test now." },
+  { "id": "8-1", "postId": 8, "userId": null, "name": "Grace Foster", "email": "grace@example.com", "body": "Short comments are definitely easier to review." },
+  { "id": "8-2", "postId": 8, "userId": null, "name": "Jack White", "email": "jack@example.com", "body": "This is the best post for testing comment flows." }
+]
